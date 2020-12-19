@@ -1,7 +1,6 @@
 package com.example.notespace
 
 import android.content.Context
-import android.sax.EndElementListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +33,13 @@ class NoteRVAdapter(private val context:Context, private val listener: INoteRVAd
     override fun getItemCount(): Int {
         return allNotes.size
     }
+
+    fun updateList(newList: List<Note>) {
+        allNotes.clear()
+        allNotes.addAll(newList)
+        notifyDataSetChanged()
+    }
+
 }
 
 interface INoteRVAdapter{
